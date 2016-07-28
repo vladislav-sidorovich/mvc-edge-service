@@ -13,6 +13,7 @@
         <module>edge-service</module>
         <module>akka-processing</module>
         <module>akka-processing-api</module>
+        <module>zoo-client</module>
     </modules>
 
     <name>Demo</name>
@@ -41,6 +42,14 @@
                 <version>${project.version}</version>
             </dependency>
             <!--Project end-->
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-zookeeper-dependencies</artifactId>
+                <version>1.0.1.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
             <!--Akka-->
             <dependency>
