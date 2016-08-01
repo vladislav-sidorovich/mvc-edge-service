@@ -1,7 +1,7 @@
 # mvc-edge-service
 Demo of spring mvc as edge service for akka 
 
-Java verion: `8`
+Java version: `8`
 
 build: `mvn clean install`
 
