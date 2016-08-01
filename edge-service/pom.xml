@@ -61,6 +61,11 @@
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-cluster_2.11</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.demo.edge.mvc</groupId>
+            <artifactId>akka-zoo-cluster</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!--Akka end-->
     </dependencies>
 

@@ -7,6 +7,7 @@ import akka.actor.Props;
 import akka.routing.FromConfig;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
+import org.demo.akka.cluster.seed.ZookeeperClusterSeed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -33,7 +34,9 @@ public class DemoApplication {
 
     @Bean
     public ActorSystem actorSystem(Config config) throws UnknownHostException {
-        return ActorSystem.create("DemoProcessingCluster", config);
+        ActorSystem system = ActorSystem.create("DemoProcessingCluster", config);
+        ZookeeperClusterSeed.get(system).join();
+        return system;
     }
 
     @Bean(name = "helloRouter")
