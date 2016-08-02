@@ -15,6 +15,7 @@
         <module>akka-processing-api</module>
         <module>zoo-client</module>
         <module>akka-zoo-cluster-seed</module>
+        <module>auth-service</module>
     </modules>
 
     <name>Demo</name>
