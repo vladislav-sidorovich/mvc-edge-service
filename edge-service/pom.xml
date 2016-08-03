@@ -66,9 +66,8 @@
             <artifactId>akka-cluster_2.11</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.demo.edge.mvc</groupId>
-            <artifactId>akka-zoo-cluster</artifactId>
-            <version>${project.version}</version>
+            <groupId>com.sclasen</groupId>
+            <artifactId>akka-zk-cluster-seed_2.11</artifactId>
         </dependency>
         <!--Akka end-->
     </dependencies>

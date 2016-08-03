@@ -28,7 +28,7 @@ public class HelloController {
 
     @RequestMapping(value = "hello/{name}", method = RequestMethod.POST)
     public DeferredResult<String> sayHello(@PathVariable @NotEmpty String name) {
-        DeferredResult<String> result = new DeferredResult<>();
+        DeferredResult<String> result = new DeferredResult<>(2l);
         ActorRef resultActor = actorSystem.actorOf(Props.create(DeferredResultActor.class, result));
 
         SayHelloTo message = new SayHelloTo(name);

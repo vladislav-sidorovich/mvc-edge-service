@@ -3,9 +3,9 @@ package org.demo.processing;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.cluster.seed.ZookeeperClusterSeed;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
-import org.demo.akka.cluster.seed.ZookeeperClusterSeed;
 import org.demo.processing.actor.HelloActor;
 
 public class ProcessingApplication {

@@ -13,8 +13,6 @@
         <module>edge-service</module>
         <module>akka-processing</module>
         <module>akka-processing-api</module>
-        <module>zoo-client</module>
-        <module>akka-zoo-cluster-seed</module>
         <module>auth-service</module>
     </modules>
 
@@ -43,11 +41,6 @@
                 <artifactId>akka-processing-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.demo.edge.mvc</groupId>
-                <artifactId>akka-zoo-cluster</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <!--Project end-->
 
             <dependency>
@@ -68,6 +61,11 @@
                 <groupId>com.typesafe.akka</groupId>
                 <artifactId>akka-cluster_2.11</artifactId>
                 <version>${akka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sclasen</groupId>
+                <artifactId>akka-zk-cluster-seed_2.11</artifactId>
+                <version>0.1.6</version>
             </dependency>
             <!--Akka end-->
 
