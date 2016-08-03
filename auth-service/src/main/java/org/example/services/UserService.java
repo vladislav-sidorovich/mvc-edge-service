@@ -20,7 +20,7 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Assert.notNull(username, "User name should no be null");
 
-        User user = repository.findOne(username);
+        User user = repository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("User with username " + username + " was not found.");
         }

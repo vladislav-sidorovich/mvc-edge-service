@@ -43,7 +43,7 @@ public class ExtendedUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getUserId().toString();
+        return user.getUsername();
     }
 
     @Override

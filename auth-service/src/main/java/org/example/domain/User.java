@@ -1,59 +1,47 @@
 package org.example.domain;
 
-import org.hibernate.annotations.Type;
-
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.List;
-import java.util.UUID;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User implements Serializable {
 
-    private static final long serialVersionUID = -7954197344364872565L;
+    private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "user_id")
-    private String userId;
+    private Long id;
+
+    @Column(name = "user_name")
+    private String username;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "client_id", referencedColumnName = "client_id", nullable = false, updatable = false)
     private Client client;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "billing_info", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"))
-    @Column(name = "billing_id")
-    @Type(type = "pg-uuid")
-    private List<UUID> billingAccounts;
-
     public User() {
     }
 
-    public String getUserId() {
-        return userId;
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public List<UUID> getBillingAccounts() {
-        return billingAccounts;
+    public String getUsername() {
+        return username;
     }
 
-    public void setBillingAccounts(List<UUID> billingAccounts) {
-        this.billingAccounts = billingAccounts;
+    public void setUsername(String username) {
+        this.username = username;
     }
-
 
     public Client getClient() {
         return client;
@@ -65,27 +53,31 @@ public class User implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         User user = (User) o;
 
-        return !(userId != null ? !userId.equals(user.userId) : user.userId != null);
+        if (id != null ? !id.equals(user.id) : user.id != null) return false;
+        if (username != null ? !username.equals(user.username) : user.username != null) return false;
+        return client != null ? client.equals(user.client) : user.client == null;
 
     }
 
     @Override
     public int hashCode() {
-        return userId != null ? userId.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (client != null ? client.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
+                "id=" + id +
+                ", username='" + username + '\'' +
                 ", client=" + client +
-                ", billingAccounts=" + billingAccounts +
                 '}';
     }
 }

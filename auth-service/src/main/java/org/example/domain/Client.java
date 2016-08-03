@@ -15,7 +15,7 @@ import java.util.Date;
 @Table(name = "client")
 public class Client implements Serializable {
 
-    private static final long serialVersionUID = -707776127353875970L;
+    private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "client_id", nullable = false, unique = true, updatable = false)

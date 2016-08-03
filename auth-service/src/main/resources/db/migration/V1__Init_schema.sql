@@ -13,13 +13,13 @@ create table client (
 );
 
 
-create table "user" (
-  user_id    varchar(255) not null,
+create table users (
+  id         serial primary key,
+  user_name  varchar(255) not null,
   client_id  varchar(255) not null,
   created_at timestamp    not null default current_timestamp,
   updated_at timestamp    null,
-  version    int8         not null default 0,
-  constraint pk_end_user primary key (user_id)
+  version    int8         not null default 0
 );
 
 create table oauth_access_token
@@ -38,11 +38,4 @@ create table oauth_refresh_token
   token_id       character varying(256),
   token          bytea,
   authentication bytea
-);
-
-create table billing_info
-(
-  billing_id uuid         not null,
-  user_id    varchar(255) not null,
-  constraint pk_billing_id primary key (billing_id)
 );
